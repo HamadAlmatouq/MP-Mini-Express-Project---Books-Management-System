@@ -6,7 +6,7 @@ const BookSchema = new Schema({
   price: { type: Number, default: 5 },
   image: {
     type: String,
-    default: "/Users/hamad/Desktop/2412fb16f6035da0ec58377b58ff20b6.jpg",
+    default: "/media",
   },
 });
 

@@ -2,10 +2,12 @@ const Book = require("../../models/books");
 
 //Create
 
-exports.booksCreate = async (req, res) => {
+exports.booksCreate = async (req, res, next) => {
   try {
-    if (req.file)
-      req.body.image = `${req.protocol}://${req.get("host")}/${req.file.path}`;
+    // if (req.file)
+    req.body.image = `${req.protocol}://${req.get("host")}/${
+      req.file ? req.file.path : "media/luffy.jpg"
+    }`;
     // else {
     //   req.body.image = "media/2412fb16f6035da0ec58377b58ff20b6.jpg";
     // }
