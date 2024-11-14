@@ -1,13 +1,17 @@
-const books = require("../../models/books");
 const Book = require("../../models/books");
 
 //Create
+
 exports.booksCreate = async (req, res) => {
   try {
     if (req.file)
       req.body.image = `${req.protocol}://${req.get("host")}/${req.file.path}`;
+    // else {
+    //   req.body.image = "media/2412fb16f6035da0ec58377b58ff20b6.jpg";
+    // }
     const newBook = await Book.create(req.body);
     res.status(201).json(newBook);
+    console.log(newBook);
   } catch (error) {
     next(error);
   }
